@@ -7,3 +7,8 @@ export const TYPEABLE_SELECTOR =
 export function isTypeableElement(element: unknown): boolean {
 	return isHTMLElement(element) && element.matches(TYPEABLE_SELECTOR);
 }
+
+export function isTypeableCombobox(element: Element | null | undefined) {
+	if (!element) return false;
+	return element.getAttribute('role') === 'combobox' && isTypeableElement(element);
+}
